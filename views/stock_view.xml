@@ -1,0 +1,70 @@
+<odoo>
+    <data>
+        explicit list view definition
+
+        <record model="ir.ui.view" id="stockdetails_list">
+            <field name="name">Stock Details list</field>
+            <field name="model">stock.details</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="item_name" />
+                    <field name="item_details" />
+                    <field name="item_price" />
+                    <field name="quantity" />
+                    <field name="company_name" />
+                    <field name="location"/>
+                    <field name="expire_date" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="stockdetails_form">
+            <field name="name">stock Details form</field>
+            <field name="model">stock.details</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="item_name" />
+                                <field name="item_details" />
+                                <field name="item_price" />
+                                 <field name="company_name"/>
+                            </group>
+                            <group>
+                                <field name="quantity"/>
+                                <field name="warehouse_name"/>
+                                <field name="location" />
+                                <field name="expire_date" />
+                            </group>
+                           
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        actions opening views on models
+
+        <record model="ir.actions.act_window" id="stockdetails_action">
+            <field name="name">Stock Details </field>
+            <field name="res_model">stock.details</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+      
+
+        menu categories
+
+        <menuitem name="Stock Detials " id="menu_stock_details"
+            parent="main_menu_medicalmanagement" action="stockdetails_action" sequence="2" />
+
+ 
+
+
+    </data>
+</odoo> 

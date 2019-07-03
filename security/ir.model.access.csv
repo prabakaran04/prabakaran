@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_company,company.details,model_company_details,,1,1,1,1
+access_stock,stock.details,model_stock_details,,1,1,1,1
+access_clients,client.details,model_client_details,,1,1,1,1
+access_sales_order,sales.order,model_sales_order,,1,1,1,1
+access_sale_order_lines,sale.order.lines,model_sale_order_lines,,1,1,1,1

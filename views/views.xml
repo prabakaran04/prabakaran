@@ -1,0 +1,62 @@
+<odoo>
+    <data>
+        explicit list view definition
+
+        <record model="ir.ui.view" id="companydetails_list">
+            <field name="name">Company Details list</field>
+            <field name="model">company.details</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="location" />
+                    <field name="contact_person" />
+                    <field name="mobile" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="companydetails_form">
+            <field name="name">Company Details form</field>
+            <field name="model">company.details</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="location" />
+                            </group>
+                            <group>
+                                <field name="contact_person" />
+                                <field name="mobile" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        actions opening views on models
+
+        <record model="ir.actions.act_window" id="companydetails_action">
+            <field name="name">Company Details </field>
+            <field name="res_model">company.details</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+
+        <menuitem name="Medical Management" id="main_menu_medicalmanagement" />
+
+        menu categories
+
+        <menuitem name="Company Detials " id="menu_company_details"
+            parent="main_menu_medicalmanagement" action="companydetails_action" sequence="1" />
+
+ 
+
+
+    </data>
+</odoo> 

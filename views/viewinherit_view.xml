@@ -1,0 +1,20 @@
+<odoo>
+    <record model="ir.ui.view" id="companydetails_form_inherited_view">
+        <field name="name">company inherited view</field>
+        <field name="model">company.details</field>
+        <field name="inherit_id" ref="medicalmanagement.companydetails_form" />
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="//field[@name='location']" position="after">
+                    <field name="company_email" widget='email' />
+                </xpath>
+                <xpath expr ="//field[@name='mobile']" position ="after">
+                <field name = 'description' widget ='html'/>
+                </xpath>
+            </data>
+        </field>
+
+    </record>
+</odoo>
+
+
