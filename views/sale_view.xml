@@ -10,7 +10,7 @@
                 <field name="client_name" />
                 <field name="validity_date" />
                 <field name="payment_terms" />
-                <field name ="total_amount"/>
+                <field name="total_amount" />
             </tree>
         </field>
     </record>
@@ -20,41 +20,42 @@
         <field name="model">sales.order</field>
         <field name="arch" type="xml">
             <form>
-            <header>
-             <button string="send by email"
-                        type="object" name="send_quotation"
-                        class=" oe_highlight"
-                        attrs="{'invisible':[('state','=','quotation_send')]}" />
-                         <button string="Confirm"
-                        type="object" name="confirm_sale_order"
-                        class=" oe_highlight"
-                        attrs="{'invisible':[('state','=','sales_order')]}" />
-                         <field name="state" widget="statusbar" />
-            </header>
+                <header>
+                    <button string="send by email" type="object" name="send_quotation"
+                        class=" oe_highlight" attrs="{'invisible':[('state','=','quotation_send')]}" />
+                    <button string="Confirm" type="object" name="confirm_sale_order"
+                        class=" oe_highlight" attrs="{'invisible':[('state','=','sales_order')]}" />
+                    <field name="state" widget="statusbar" />
+                </header>
                 <sheet>
                     <group>
                         <group>
                             <field name="saleorder_id" />
                             <field name="client_name" />
-                           <field name ="status"/>
+                            <field name="status" />
                         </group>
                         <group>
                             <field name="validity_date" />
                             <field name="payment_terms" />
-                          
+
                         </group>
                     </group>
                     <!-- <group> <group> <field name="quantity" readonly="1" /> </group> <group> <field 
                         name ='item_price'></field> </group> </group> -->
                     <div>
-                        <field name="order_line"  widget="section_and_note_one2many" mode="tree" />
-                        
-                        
+                        <field name="order_line" widget="section_and_note_one2many"
+                            mode="tree" />
+
+
                     </div>
-                    <group class ="oe_subtotal_footer oe_right">
-                    <field name ="untax_amount" class = "oe_right"/>
-                    <field name ="taxes" class= "oe_right"/>
-                    <field name ="total_amount" class = "oe_right"/>
+                    <group class="oe_subtotal_footer oe_right">
+                        <field name="untax_amount" class="oe_right" />
+                        <field name="taxes" class="oe_right" />
+                         <div class="oe_subtotal_footer_separator oe_inline o_td_label">
+                                   <label for ="total_amount"/>
+                                </div>
+                                <field name="total_amount" nolabel="1" class="oe_subtotal_footer_separator" />
+                        
                     </group>
                 </sheet>
             </form>
@@ -89,29 +90,29 @@
                 <field name="units_price" />
                 <field name="tax" />
                 <field name="sub_total" />
-                <field name ="untax_amount" invisible ="1" />
-                <field name ="taxes" invisible ="1"/>
+                <field name="untax_amount" invisible="1" />
+                <field name="taxes" invisible="1" />
             </tree>
         </field>
     </record>
-    
+
     <record model="ir.ui.view" id="saleorderlines_from">
         <field name="name">Sale Order form</field>
         <field name="model">sale.order.lines</field>
         <field name="arch" type="xml">
             <form>
-            <sheet>
-            <group>
-                <field name="product_name" />
-                <field name="description" />
-                <field name="product_quantity" />
-                <field name="units_price" />
-                <field name="tax" />
-                <field name="sub_total" />
-                <field name ="in_stock"/>
-                <field name ="untax_amount" invisible ="1"/>
-                <field name ="taxes" invisible ="1"/>
-                </group>
+                <sheet>
+                    <group>
+                        <field name="product_name" />
+                        <field name="description" />
+                        <field name="product_quantity" />
+                        <field name="units_price" />
+                        <field name="tax" />
+                        <field name="sub_total" />
+                        <field name="in_stock" />
+                        <field name="untax_amount" invisible="1" />
+                        <field name="taxes" invisible="1" />
+                    </group>
                 </sheet>
             </form>
         </field>

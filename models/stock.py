@@ -12,7 +12,9 @@ class StockDetails(models.Model):
     warehouse_name = fields.Char()
     expire_date = fields.Date(string = "Expire Date")
    
-    item_quantity = fields.Float(string ="quantity",  default = "1" )
-
+    item_quantity = fields.Float(string ="quantity",  default = 1 )
+    
+    _sql_constraints=[('item_name_item_details_check','CHECK(item_name != item_details)', 'the item name should not be same as item details')]
+   
     
     
