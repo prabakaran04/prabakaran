@@ -11,6 +11,8 @@ class ClientDetails(models.Model):
     client_email = fields.Char(string = 'Email')
     mobile = fields.Char(string = 'Mobile')
     status = fields.Selection(string = 'status' , selection=[('gold', 'Gold'),('silver','Silver'),('bronze','bronze')])
+    client_sex = fields.Selection(string = "Sex", selection=[('male','Male'),('female','Female')])
+   
     
     @api.model
     def create(self , vals):

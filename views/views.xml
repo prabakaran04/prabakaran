@@ -36,6 +36,23 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="companydetails_search">
+            <field name="name">company details search</field>
+            <field name="model">company.details</field>
+            <field name="arch" type="xml">
+                <search string="company details search">
+                    <field name="name" />
+                    <field name="location" />
+                    <field name="contact_person" />
+                    <field name="mobile" />
+                    <group expand ="2" string ="groupby">
+                    <filter name ="groupby_location" string = "location" context ="{'group_by':'location'}"/>
+                    </group>
+                    <filter name ="company name" string ="company name" domain="[('name','=','cilpa')]"/>
+                </search>
+            </field>
+        </record>
+
 
         actions opening views on models
 
@@ -43,7 +60,7 @@
             <field name="name">Company Details </field>
             <field name="res_model">company.details</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,search,kanban</field>
         </record>
 
 
@@ -55,7 +72,7 @@
         <menuitem name="Company Detials " id="menu_company_details"
             parent="main_menu_medicalmanagement" action="companydetails_action" sequence="1" />
 
- 
+
 
 
     </data>
