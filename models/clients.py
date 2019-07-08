@@ -12,6 +12,7 @@ class ClientDetails(models.Model):
     mobile = fields.Char(string = 'Mobile')
     status = fields.Selection(string = 'status' , selection=[('gold', 'Gold'),('silver','Silver'),('bronze','bronze')])
     client_sex = fields.Selection(string = "Sex", selection=[('male','Male'),('female','Female')])
+    date =fields.Datetime(string = "created on" , default=fields.Datetime.now)
    
     
     @api.model
