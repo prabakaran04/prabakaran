@@ -46,16 +46,6 @@
         </record>
 
 
-        <record id="view_stock_gantt" model="ir.ui.view">
-            <field name="name">stock details view</field>
-            <field name="model">stock.details</field>
-            <field name="arch" type="xml">
-                <gantt date_stop="expire_date" date_start="production_date"
-                    progress="progress" string="Productions" default_group_by="item_name">
-                </gantt>
-            </field>
-        </record>
-
         <record id="view_stock_pivot" model="ir.ui.view">
             <field name="name">stock details view</field>
             <field name="model">stock.details</field>
@@ -76,7 +66,7 @@
             <field name="name">Stock Details </field>
             <field name="res_model">stock.details</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form,kanban,pivot,gantt</field>
+            <field name="view_mode">tree,form,kanban,pivot</field>
         </record>
 
 
