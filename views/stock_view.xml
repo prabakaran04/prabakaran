@@ -12,7 +12,7 @@
                     <field name="item_price" />
                     <field name="quantity" />
                     <field name="company_name" />
-                    <field name="location"/>
+                    <field name="location" />
                     <field name="expire_date" />
                 </tree>
             </field>
@@ -29,20 +29,45 @@
                                 <field name="item_name" />
                                 <field name="item_details" />
                                 <field name="item_price" />
-                                 <field name="company_name"/>
+                                <field name="company_name" />
                             </group>
                             <group>
-                                <field name="quantity"/>
-                                <field name="warehouse_name"/>
+                                <field name="quantity" />
+                                <field name="warehouse_name" />
                                 <field name="location" />
                                 <field name="expire_date" />
+                                <field name="production_date" />
                             </group>
-                           
+
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
+
+
+        <record id="view_stock_gantt" model="ir.ui.view">
+            <field name="name">stock details view</field>
+            <field name="model">stock.details</field>
+            <field name="arch" type="xml">
+                <gantt date_stop="expire_date" date_start="production_date"
+                    progress="progress" string="Productions" default_group_by="item_name">
+                </gantt>
+            </field>
+        </record>
+
+        <record id="view_stock_pivot" model="ir.ui.view">
+            <field name="name">stock details view</field>
+            <field name="model">stock.details</field>
+            <field name="arch" type="xml">
+                <pivot string="stock">
+                    <field name="item_name" type="row" />
+                    <field name="expire_date" interval="month" type="row" />
+                    <field name="item_price" type="measure" widget="float_time" />
+                </pivot>
+            </field>
+        </record>
+
 
 
         actions opening views on models
@@ -51,19 +76,19 @@
             <field name="name">Stock Details </field>
             <field name="res_model">stock.details</field>
             <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
+            <field name="view_mode">tree,form,kanban,pivot,gantt</field>
         </record>
 
 
 
-      
+
 
         menu categories
 
         <menuitem name="Stock Detials " id="menu_stock_details"
             parent="main_menu_medicalmanagement" action="stockdetails_action" sequence="2" />
 
- 
+
 
 
     </data>

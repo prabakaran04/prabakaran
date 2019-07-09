@@ -8,8 +8,10 @@ class StockDetails(models.Model):
     item_details = fields.Char(string = "Item Details")
     item_price = fields.Integer(string ="Item price")
     quantity = fields.Integer(string = 'Quantity')
-    company_name = fields.Many2one('company.details',string ="Company name", required = True , delegate = True , domain =[('name','=','cilpa')])
+    company_name = fields.Many2one('company.details',string ="Company name", required = True , delegate = True )
+#     domain =[('name','=','cilpa')] use domain to list specific values
     warehouse_name = fields.Char()
+    production_date = fields.Date(string ="manufacture date")
     expire_date = fields.Date(string = "Expire Date")
    
     item_quantity = fields.Float(string ="quantity",  default = 1 )
