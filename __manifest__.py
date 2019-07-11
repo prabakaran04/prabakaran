@@ -24,13 +24,16 @@
 
     # always loaded
     'data': [
+        'data/reportpaper_format.xml',
         'security/ir.model.access.csv',
         'views/views.xml',
-        'views/templates.xml',
         'views/stock_view.xml',
         'views/clients_view.xml',
         'views/sale_view.xml',
-        'views/viewinherit_view.xml'
+        'views/viewinherit_view.xml',
+        'views/layout.xml',
+        'views/report_action.xml',
+        'views/report_sale_template.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

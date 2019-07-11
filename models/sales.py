@@ -15,7 +15,7 @@ class SaleOrder(models.Model):
                 
    
     saleorder_id = fields.Char(string='sale order', required =True)
-    client_name = fields.Many2one('client.details',string='Client name')
+    client_name = fields.Many2one('client.details',string='Client name', delegate = True)
     status = fields.Selection(related = 'client_name.status', string ="status")
    
 #     product_order_line = fields.One2many('sale.order.lines','sale_order_line' 
@@ -28,6 +28,7 @@ class SaleOrder(models.Model):
     taxes = fields.Float(compute ='_all_amount')
     state = fields.Selection(selection=[('quotation_create','Quotation'),('quotation_send', 'Quotation send'),('confirm_sale_order','sales order')],
                              default = 'quotation_create')
+    
     
     @api.multi
     def send_quotation(self):

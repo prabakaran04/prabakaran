@@ -1,0 +1,12 @@
+<odoo>
+<report
+   id="action_report_sales_order_invoice"
+   string="Sales Order Invoice"
+   model="sales.order"
+   report_type="qweb-pdf"
+   file ="medicalmanagement.customer_report_saleorder"
+   name="medicalmanagement.customer_report_saleorder"
+   print_report_name="'sales_order - %s' % (object.saleorder_id)"
+  
+/>
+</odoo>
