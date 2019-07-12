@@ -4,7 +4,11 @@
             style="background-image:url(/medicalmanagement/static/img/Green.jpg); height:120px;width:100%;">
             <div class="row">
                 <div class="col-3">
-                    <img src="/medicalmanagement/static/img/medical_log.png"  height="100%" width="100%" style = "margin-left:10px" />
+                    <img src="/medicalmanagement/static/img/medical_log.png" height="100%"
+                        width="100%" style="margin-left:10px" />
+                </div>
+                <div class="col-8" style="text-align:center; margin-top:40px;">
+                    <h2>Medical Management</h2>
                 </div>
             </div>
         </div>
@@ -14,8 +18,21 @@
             <t t-call="web.address_layout" />
             <t t-raw="0" />
         </div>
-        <div class="footer"
-            style=" background-image:url(/medicalmanagement/static/img/Green.jpg); height:120px;width:100%;">
+        <div class="footer o_clean_footer">
+            <div class="row" style="margin-top:20px">
+                <div class="col-3 offset-2">
+                    <div t-field="doc.client_name.address" />
+                </div>
+                <div class="col-3">
+                    <div t-field="doc.client_name.client_email" />
+                </div>
+                <div class="col-3">
+                    <div t-field="doc.client_name.mobile" />
+                </div>
+            </div>
+            <div t-if="report_type == 'pdf'" class="text-muted" style="text-align:center; margin-top:20px;">
+                    Page: <span class="page"/> / <span class="topage"/>
+                </div>
         </div>
     </template>
 </odoo>

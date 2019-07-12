@@ -10,73 +10,112 @@
                         </strong>
                         <div class="t-bold" t-field="doc.address" />
                     </div>
-                     </div>
-                    <div class="row mt64">
-                        <div class="col-3">
-                          <strong><span>sale order:<div class="t-bold" t-field="doc.saleorder_id" /></span></strong> 
-                            
-                        </div>
-                         <div class="col-3">
-                          <strong>client name:</strong> 
-                            <div class="t-bold" t-field="doc.client_name" />
-                        </div>
-                        <div class="col-3">
-                          <strong>order date:</strong> 
-                            <div class="t-bold" t-field="doc.validity_date" />
-                        </div>
-                        <div class="col-3">
-                          <strong>payment terms:</strong> 
-                            <div class="t-bold" t-field="doc.payment_terms" />
-                        </div>
-                        
-                        <div class = "row" style="height:120px">
-                        <div class = "col-12"></div>
-                        </div>
-                       
+                </div>
+
+                <div class="row mt64">
+                    <div class="col-2">
+                        <h4>sale order:</h4>
+                        <div class="t-bold" t-field="doc.saleorder_id" style="font-size:25px" />
                     </div>
-                     <div class="row" style="background-color:grey" >
-                          
-                         
-                            <div class="col-3">
-                             <strong>product name:</strong> 
-                            </div>
-                             <div class="col-3" style="text-align:right">
-                             <strong>product quantity</strong>
-                             </div> 
-                              <div class="col-2" style="text-align:right">
-                              <strong>unit price:</strong>
-                              </div>
-                               <div class="col-2" style="text-align:right"> 
-                              <strong>tax</strong> 
-                              </div>
-                                <div class="col-2" style="text-align:right">
-                                <strong>sub total</strong>
-                                </div> 
-                          
+                    <div class="col-3">
+                        <h4>client name:</h4>
+                        <div class="t-bold" t-field="doc.client_name" style="font-size:25px" />
+                    </div>
+                    <div class="col-3">
+                        <h4>order date:</h4>
+                        <div class="t-bold" t-field="doc.validity_date" style="font-size:25px" />
+                    </div>
+                    <div class="col-4">
+                        <h4>payment terms:</h4>
+                        <div class="t-bold" t-field="doc.payment_terms" style="font-size:22px" />
+                    </div>
+
+                    <div class="row" style="height:120px">
+                        <div class="col-12"></div>
+                    </div>
+
+                </div>
+
+                <div class="row" style="background-color:grey; font-size:15px;">
+                    <div class="col-3">
+                        <strong>product name:</strong>
+                    </div>
+                    <div class="col-3" style="text-align:right">
+                        <strong>product quantity</strong>
+                    </div>
+                    <div class="col-2" style="text-align:right">
+                        <strong>unit price:</strong>
+                    </div>
+                    <div class="col-2" style="text-align:right">
+                        <strong>tax</strong>
+                    </div>
+                    <div class="col-2" style="text-align:right">
+                        <strong>sub total</strong>
+                    </div>
+                </div>
+
+
+                <div class="row" t-foreach="doc.order_line" t-as="o">
+                    <div class="col-3">
+                        <div t-field="o.product_name" />
+                    </div>
+                    <div class="col-3">
+                        <div t-field="o.product_quantity" style="text-align:right" />
+                    </div>
+                    <div class="col-2">
+                        <div t-field="o.units_price" style="text-align:right" />
+                    </div>
+                    <div class="col-2">
+                        <div t-field="o.tax" style="text-align:right" />
+                    </div>
+                    <div class="col-2">
+                        <div t-field="o.sub_total" style="text-align:right" />
+                    </div>
+                    <div class="row" style="height:40px">
+                        <div class="col-12"></div>
+                    </div>
+                </div>
+
+                <div class="row" style="height:80px">
+                    <div class="col-12"></div>
+                </div>
+
+                <div class="clearfix" style="text-align:right">
+                    <div class="row">
+                        <div
+                            t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                            <table class="table table-sm">
+                                <tr class="border-black o_subtotal">
+                                    <td>
+                                        <strong>Untax amount:</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="doc.untax_amount" />
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <strong>taxes:</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="doc.taxes" />
+                                    </td>
+                                </tr>
+
+                                <tr class="border-black o_total">
+                                    <td>
+                                        <strong>Total:</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="doc.total_amount" />
+                                    </td>
+                                </tr>
+                            </table>
                         </div>
-                       
-                     <div class="row" t-foreach="doc.order_line" t-as="o">
-                          
-                         
-                            <div class="col-3">
-                             <div t-field ="o.product_name"/>
-                            </div>
-                             <div class="col-3">
-                            <div t-field ="o.product_quantity" style="text-align:right"/>
-                             </div> 
-                              <div class="col-2" >
-                              <div t-field ="o.units_price" style="text-align:right"/>
-                              </div>
-                               <div class="col-2"> 
-                               <div t-field ="o.tax" style="text-align:right"/>
-                              </div>
-                                <div class="col-2">
-                                <div t-field ="o.sub_total" style="text-align:right"/>
-                                </div> 
-                          
-                        </div>
-                       
-               
+                    </div>
+                </div>
+
             </div>
         </t>
     </template>
