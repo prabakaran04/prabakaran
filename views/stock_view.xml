@@ -58,9 +58,7 @@
             </field>
         </record>
 
-
-
-        actions opening views on models
+      actions opening views on models
 
         <record model="ir.actions.act_window" id="stockdetails_action">
             <field name="name">Stock Details </field>
@@ -69,17 +67,10 @@
             <field name="view_mode">tree,form,kanban,pivot</field>
         </record>
 
-
-
-
-
-        menu categories
+      menu categories
 
         <menuitem name="Stock Detials " id="menu_stock_details"
             parent="main_menu_medicalmanagement" action="stockdetails_action" sequence="2" />
-
-
-
-
-    </data>
+      
+      </data>
 </odoo> 

@@ -1,4 +1,4 @@
-<odoo>
+<!-- <odoo>
     <template id="web.external_layout_standard">
         <div class="header"
             style="background-image:url(/medicalmanagement/static/img/Green.jpg); height:120px;width:100%;">
@@ -35,4 +35,88 @@
                 </div>
         </div>
     </template>
+</odoo> -->
+
+<odoo>
+    <template id="report_assets_common" inherit_id="web.report_assets_common">
+        <xpath expr="//link[last()]" position="after">
+            <link rel="stylesheet" type="text/scss"
+                href="/medicalmanagement/static/src/scss/table.scss"/>
+        </xpath>
+    </template>
+
+    <template id="web.external_layout_standard">
+        <div class="header">
+            <div class="row">
+                <div class="col-3">
+                    <strong style ="font-size:14px">Sohre turbomachinery inc.</strong>
+                    <br />
+                    34 north maple street
+                    <br />
+                    suite 7
+                    <br />
+                    florence, Ma 01062
+                    <br />
+                    united states
+                </div>
+                <div class="col-3">
+                    tel:(+1)2343432234
+                    <br />
+                    tel:(+1)2343432234
+                    <br />
+                    http://www.sohreturbo.com
+                    <br />
+                    sales@sohreturbo.com
+                    <br />
+                </div>
+                <div class="col-6"
+                    style="background-image:url(/medicalmanagement/static/img/blue.png);height:50px;">
+                   <div class="row">
+                   <div class= "col-4">
+                   <img src ="/medicalmanagement/static/img/medical.jpeg" style="height:50px; width:100%;"/>
+                   </div>
+                   <div class="col-8">
+                    <h3
+                        style="text-align:center;
+                             margin-top:20px;
+                             color:white;">Medical Management</h3>
+                             </div>
+                              </div>
+                    <p style="text-align:right;margin-top:10px">
+                        Shaft Grounding Brushes<br/>Shaft Earthing Brushes
+                    </p>
+                </div>
+                </div>
+           
+            <hr
+                style="height: 1px;
+                        border-style: solid;
+                        border-color: black;
+                        border-width: 1px 0 0 0;
+                        border-radius: 20px;"></hr>
+        </div>
+
+        <div class="article o_report_layout_standard" t-att-data-oe-model="o and o._name"
+            t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+            <t t-call="web.address_layout" />
+            <t t-raw="0" />
+        </div>
+        <div class="footer o_clean_footer" style ="margin-bottom:20px">
+        <div class="row" style="margin-top:20px">
+                <div class="col-3 offset-2">
+                    <div t-field="doc.client_name.address" />
+                </div>
+                <div class="col-3">
+                    <div t-field="doc.client_name.client_email"/>
+                </div>
+                <div class="col-3">
+                    <div t-field="doc.client_name.mobile" />
+                </div>
+            </div>
+            <div t-if="report_type == 'pdf'" class="text-muted"
+                style="text-align:center; margin-top:20px;">
+                Page:<span class="page"/> / <span class="topage"/>
+            </div>
+        </div>
+        </template>
 </odoo>

@@ -23,6 +23,9 @@
             <field name="model">client.details</field>
             <field name="arch" type="xml">
                 <form>
+               <header>
+                <button name="%(open_wizard_action_id)d" type="action" string="Open Wizard"/>
+               </header>
                     <sheet>
                         <h1>
                             <field name='client_id' />
@@ -43,6 +46,12 @@
                                     class="oe_left oe_avatar" />
                             </group>
                         </group>
+                    
+                       <div style="text-align:center">
+                        <button name="b" type="object"/>
+                        </div>
+                        
+                        
                     </sheet>
                 </form>
             </field>

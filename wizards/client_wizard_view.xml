@@ -1,0 +1,29 @@
+<odoo>
+    <record id="wizard_object_view" model="ir.ui.view">
+        <field name="name">client.wizard</field>
+        <field name="model">client.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Wizard Demo" version="7.0">
+                <group>
+                    <field name="name" />
+
+                </group>
+                <footer>
+                    <button name="method_name" string="Yes" type="object"
+                        class="oe_highlight" />
+                   
+                    <button string="Cancel" class="oe_link" special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="open_wizard_action_id" model="ir.actions.act_window">
+        <field name="name">Wizard Demo</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">client.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

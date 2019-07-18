@@ -1,128 +1,262 @@
 <odoo>
-    <template id="customer_report_saleorder_document">
-        <t t-call="web.external_layout_standard">
-            <div class="page">
-                <div class="oe_structure" />
-                <div class="row">
-                    <div class="col-12" style="text-align:right">
-                        <strong>
-                            <div class="t-bold" t-field="doc.client_name" />
-                        </strong>
-                        <div class="t-bold" t-field="doc.address" />
-                    </div>
+
+
+    <!-- <template id="customer_report_saleorder_document">
+    <t t-call="web.external_layout_standard">
+        <div class="page">
+            <div class="oe_structure" />
+            <div class="row">
+                <div class="col-12" style="text-align:right">
+                    <strong>
+                        <div class="t-bold" t-field="doc.client_name" />
+                    </strong>
+                    <div class="t-bold" t-field="doc.address" />
                 </div>
-
-                <div class="row mt64">
-                    <div class="col-2">
-                        <h4>sale order:</h4>
-                        <div class="t-bold" t-field="doc.saleorder_id" style="font-size:25px" />
-                    </div>
-                    <div class="col-3">
-                        <h4>client name:</h4>
-                        <div class="t-bold" t-field="doc.client_name" style="font-size:25px" />
-                    </div>
-                    <div class="col-3">
-                        <h4>order date:</h4>
-                        <div class="t-bold" t-field="doc.validity_date" style="font-size:25px" />
-                    </div>
-                    <div class="col-4">
-                        <h4>payment terms:</h4>
-                        <div class="t-bold" t-field="doc.payment_terms" style="font-size:22px" />
-                    </div>
-
-                    <div class="row" style="height:120px">
-                        <div class="col-12"></div>
-                    </div>
-
+            </div>
+            <div class="row mt64">
+                <div class="col-2">
+                    <h4>sale order:</h4>
+                    <div class="t-bold" t-field="doc.saleorder_id" style="font-size:25px" />
                 </div>
-
-                <div class="row" style="background-color:grey; font-size:15px;">
-                    <div class="col-3">
-                        <strong>product name:</strong>
-                    </div>
-                    <div class="col-3" style="text-align:right">
-                        <strong>product quantity</strong>
-                    </div>
-                    <div class="col-2" style="text-align:right">
-                        <strong>unit price:</strong>
-                    </div>
-                    <div class="col-2" style="text-align:right">
-                        <strong>tax</strong>
-                    </div>
-                    <div class="col-2" style="text-align:right">
-                        <strong>sub total</strong>
-                    </div>
+                <div class="col-3">
+                    <h4>client name:</h4>
+                    <div class="t-bold" t-field="doc.client_name" style="font-size:25px" />
                 </div>
-
-
-                <div class="row" t-foreach="doc.order_line" t-as="o">
-                    <div class="col-3">
-                        <div t-field="o.product_name" />
-                    </div>
-                    <div class="col-3">
-                        <div t-field="o.product_quantity" style="text-align:right" />
-                    </div>
-                    <div class="col-2">
-                        <div t-field="o.units_price" style="text-align:right" />
-                    </div>
-                    <div class="col-2">
-                        <div t-field="o.tax" style="text-align:right" />
-                    </div>
-                    <div class="col-2">
-                        <div t-field="o.sub_total" style="text-align:right" />
-                    </div>
-                    <div class="row" style="height:40px">
-                        <div class="col-12"></div>
-                    </div>
+                <div class="col-3">
+                    <h4>order
+                        date:
+                    </h4>
+                    <div class="t-bold" t-field="doc.validity_date" style="font-size:25px" />
                 </div>
-
-                <div class="row" style="height:80px">
+                <div class="col-4">
+                    <h4>payment terms:</h4>
+                    <div class="t-bold" t-field="doc.payment_terms" style="font-size:22px" />
+                </div>
+                <div class="row" style="height:120px">
                     <div class="col-12"></div>
                 </div>
+            </div>
+            <div class="row" style="background-color:grey; 
+        font-size:15px;">
+                <div class="col-3">
+                    <strong>product name:</strong>
+                </div>
+                <div class="col-3" style="text-align:right">
+                    <strong>product quantity</strong>
+                </div>
+                <div class="col-2" style="text-align:right">
+                    <strong>unit price:</strong>
+                </div>
+                <div class="col-2" style="text-align:right">
+                    <strong>tax</strong>
+                </div>
+                <div class="col-2" style="text-align:right">
+                    <strong>sub total</strong>
+                </div>
+            </div>
+            <div class="row" t-foreach="doc.order_line" t-as="o">
+                <div class="col-3">
+                    <div t-field="o.product_name" />
+                </div>
+                <div class="col-3">
+                    <div t-field="o.product_quantity" style="text-align:right" />
+                </div>
+                <div class="col-2">
+                    <div t-field="o.units_price" style="text-align:right" />
+                </div>
+                <div class="col-2">
+                    <div t-field="o.tax" style="text-align:right" />
+                </div>
+                <div class="col-2">
+                    <div t-field="o.sub_total" style="text-align:right" />
+                </div>
+                <div class="row" style="height:40px">
+                    <div class="col-12"></div>
+                </div>
+            </div>
+            <div class="row" style="height:80px">
+                <div class="col-12"></div>
+            </div>
+            <div class="clearfix" style="text-align:right">
+                <div class="row">
+                    <div
+                        t-attf-class="#{'col-4' if report_type != 'html' else 
+        'col-sm-7 col-md-5'} ml-auto">
+                        <table class="table table-sm">
+                            <tr class="border-black o_subtotal">
+                                <td>
+                                    <strong>Untax amount:</strong>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="doc.untax_amount" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <strong>taxes:</strong>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="doc.taxes" />
+                                </td>
+                            </tr>
+                            <tr class="border-black o_total">
+                                <td>
+                                    <strong>Total:</strong>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="doc.total_amount" />
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+</template> -->
 
-                <div class="clearfix" style="text-align:right">
-                    <div class="row">
-                        <div
-                            t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
-                            <table class="table table-sm">
-                                <tr class="border-black o_subtotal">
-                                    <td>
-                                        <strong>Untax amount:</strong>
-                                    </td>
-                                    <td class="text-right">
-                                        <span t-field="doc.untax_amount" />
-                                    </td>
 
+    <template id="customer_report_saleorder_document">
+      <t t-call="web.external_layout_standard">
+        <div class="page"  style ="margin-top:100px">
+                <div class="clearfix">
+                    <div class="row" >
+                        <div class="col-12">
+                            <!-- <table style= "border: 1px solid #ddd;text-align: left; border-collapse: 
+                                collapse;width: 100%;"> -->
+                            <table class="o_table">
+                                <tr>
+                                    <th class="o_th">Order Date</th>
+                                    <th class="o_th">Order #</th>
+                                    <th class="o_th">Contact Person</th>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <strong>taxes:</strong>
+                                    <td class="o_td">
+                                        <span t-field="doc.validity_date"></span>
                                     </td>
-                                    <td class="text-right">
-                                        <span t-field="doc.taxes" />
+                                    <td class="o_td">
+                                        <span t-field="doc.saleorder_id"></span>
+                                    </td>
+                                    <td class="o_td">
+                                        <span t-field="doc.client_name"></span>
                                     </td>
                                 </tr>
-
-                                <tr class="border-black o_total">
-                                    <td>
-                                        <strong>Total:</strong>
+                             </table>
+                        </div>
+                  </div>
+                   
+                   <div class="row" style="margin-top:40px">
+                        <div class="col-12">
+                            <table class="o_table">
+                                <tr>
+                                    <th class="o_th">Customer</th>
+                                    <th class="o_th">Shiping Address</th>
+                               </tr>
+                               
+                               <tr>
+                                    <td class="o_td">
+                                        <span t-field="doc.client_name.status"></span>
+                                        <br />
+                                        <span t-field="doc.client_name.client_email"></span>
                                     </td>
-                                    <td class="text-right">
-                                        <span t-field="doc.total_amount" />
+                                    <td class="o_td">
+                                        <span t-field="doc.client_name.address"></span>
                                     </td>
+                               </tr>
+                           </table>
+                        </div>
+                    </div>
+                    
+                    <div class="row" style="margin-top:40px">
+                        <div class="col-12">
+                            <table class="o_table">
+                                <tr>
+                                    <th class="o_th">Cust.Rfq Date</th>
+                                    <th class="o_th">Cust.Rfq Number</th>
+                                    <th class="o_th">Terms</th>
+                                    <th class="o_th">Shipping Terms</th>
+                               </tr>
+                                <tr>
+                                    <td class="o_td"></td>
+                                    <td class="o_td"></td>
+                                    <td class="o_td">
+                                        <span t-field="doc.payment_terms"></span>
+                                    </td>
+                                    <td class="o_td">collect</td>
                                 </tr>
                             </table>
                         </div>
                     </div>
-                </div>
 
+                    <div class="row" style="margin-top:40px">
+                        <div class="col-md-12">
+                            <table class="table table-borderless" >
+                                <thead style="border-bottom:1px solid black;">
+                                    <tr>
+                                        <th style="text-align:center;padding:0;">S.No</th>
+                                        <th style="padding:0">Product name</th>
+                                        <th style="padding:0">Description</th>
+                                        <th style="text-align:right;padding:0;">Qty</th>
+                                        <th style="text-align:center;padding:0;">Each ($)</th>
+                                        <th style="text-align:right;padding:0;">Total price</th>
+                                   </tr>
+                                </thead>
+                                <tbody>
+                                    <t t-set="i" t-value="1"/>
+                                    <tr t-foreach="doc.order_line" t-as="o" >
+                                        <td style="padding:0;text-align:center;"> <span t-esc="i"></span></td>
+                                        <t t-set="i" t-value="i+1"/>
+                                        <td style="padding:0">
+                                            <span t-field="o.product_name"></span>
+                                        </td>
+                                        <td style="padding:0">
+                                            <span t-field="o.description"></span>
+                                        </td>
+                                        <td  style="text-align:right;padding:0;">
+                                            <span t-field="o.product_quantity"></span>
+                                        </td>
+                                        <td style="text-align:center;padding:0;">
+                                            <span t-field="o.units_price"></span>
+                                        </td>
+                                        <td style="text-align:right;padding:0;">
+                                            <span t-field="o.sub_total"></span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="clearfix" style="text-align:right">
+                        <div class="row">
+                            <div
+                                t-attf-class="#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto">
+                                <table class="table table-sm">
+                                    <tr class="border-black o_subtotal">
+                                        <td>
+                                            <strong>Total:</strong>
+                                        </td>
+                                        <td class="text-right">
+                                            <span t-field="doc.total_amount" />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="col-12 " style="margin-top:30px; text-align:justify;font-size:12px;">
+                        Medical case management is a collaborative process that facilitates recommended treatment plans to assure the appropriate medical care is provided to disabled, ill or injured individuals. 
+                        It is a role frequently overseen by patient advocates.
+
+                        It refers to the planning and coordination of health care services appropriate to achieve the goal of medical rehabilitation. Medical case management may include, but is not limited to, care assessment, 
+                        including personal interview with the injured employee,and assistance in developing, implementing and coordinating a medical care plan with health care providers, as well as the employee and his/her family and evaluation of treatment results.
+                    </p>
+                </div>
             </div>
-        </t>
+         </t>
     </template>
 
-
-
-    <template id="customer_report_saleorder">
+     <template id="customer_report_saleorder">
         <t t-call="web.html_container">
             <t t-foreach="docs" t-as="doc">
                 <t t-call="medicalmanagement.customer_report_saleorder_document" />
